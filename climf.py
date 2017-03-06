@@ -110,7 +110,7 @@ if __name__=='__main__':
     parser.add_option('--test',dest='test',help='optional test dataset (matrixmarket format)')
     parser.add_option('-d','--dim',dest='D',type='int',default=10,help='dimensionality of factors (default: %default)')
     parser.add_option('-l','--lambda',dest='lbda',type='float',default=0.001,help='regularization constant lambda (default: %default)')
-    parser.add_option('-g','--gamma',dest='gamma',type='float',default=0.0001,help='gradient ascent learning rate gamma (default: %default)')
+    parser.add_option('-g','--gamma',dest='gamma',type='float',default=0.003,help='gradient ascent learning rate gamma (default: %default)')
     parser.add_option('--max_iters',dest='max_iters',type='int',default=25,help='max iterations (default: %default)')
 
     (opts,args) = parser.parse_args()
