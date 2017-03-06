@@ -67,13 +67,13 @@ def update(data,U,V,lbda,gamma):
         dU = -lbda*U[i]
         f = precompute_f(data,U,V,i)
         for j in f:
-            dV = g(-f[j])-lbda*V[j]
-            for k in f:
-                dV += dg(f[j]-f[k])*(1/(1-g(f[k]-f[j]))-1/(1-g(f[j]-f[k])))*U[i]
-            V[j] += gamma*dV
             dU += g(-f[j])*V[j]
             for k in f:
                 dU += (V[j]-V[k])*dg(f[k]-f[j])/(1-g(f[k]-f[j]))
+            dV = g(-f[j])*U[i]-lbda*V[j]
+            for k in f:
+                dV += dg(f[j]-f[k])*(1/(1-g(f[k]-f[j]))-1/(1-g(f[j]-f[k])))*U[i]
+            V[j] += gamma*dV
         U[i] += gamma*dU
 
 def compute_mrr(data,U,V,test_users=None):
